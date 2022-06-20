@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: buildyasimage 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: buildyasimage
+  template:
+    metadata:
+      labels:
+        app: buildyasimage 
+    spec:
+      containers:
+        - name: buildyasimage 
+          image: yasaz.azurecr.io/buildyasimage
+          ports:
+          - containerPort: 80
